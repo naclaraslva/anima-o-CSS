@@ -1,0 +1,82 @@
+/* eixo y vertical
+eixo x horizontal */
+
+html {
+    height: 100%;
+}
+
+body {
+    background: rgb(135, 10, 40);
+    background: linear-gradient(90deg, rgba(135, 10, 40, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(0, 97, 60, 1) 100%);
+
+}
+
+.container {
+    width: 500px;
+    height: 500px;
+    border-radius: 100px;
+    background: #fff;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ball,
+.shadow {
+    /*sobre tamanho e localizaçao da bola e da sombra*/
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    border-radius: 100%;
+
+    /*isso aqui ta chamando a funçao keyframe para funcionar no ball e shadow*/
+    animation-iteration-count: infinite;
+    animation-duration: 800ms;
+    animation-timing-function: ease-in-out;
+}
+
+.ball {
+    background: radial-gradient(circle at 60% 30%, #d8ffc3 0%, #85ffbd 70%);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 7px 13px -3px inset, rgba(0, 0, 0, 0.12) -2px -6px inset;
+    animation-name: quicar;
+
+}
+
+.shadow {
+    transform: rotateX(70deg) scaleY(1.8);
+    box-shadow: rgba(0, 0, 0, 0.075) -10px 100px 20px 5px;
+    animation-name: shade;
+
+}
+
+@keyframes quicar {
+    50% {
+        transform: translateY(80px) rotateX(28deg);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 7px 13px -13px inset, rgba(0, 0, 0, 0.12) -2px -1px 0px inset;
+    }
+
+    25%,
+    75% {
+        filter: blur(1.5px);
+    }
+
+    0%,
+    100% {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 7px 13px -3px inset, rgba(0, 0, 0, 0.12) -2px -6px 0px inset;
+        filter: blur(0);
+    }
+}
+
+@keyframes shade {
+    50% {
+        box-shadow: rgba(0, 0, 0, 0.12) -5px 170px -0px -5px;
+    }
+
+    0%,
+    100% {
+        box-shadow: rgba(0, 0, 0, 0.075) -10px 100px 20px 5px;
+    }
+}
